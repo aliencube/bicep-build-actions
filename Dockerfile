@@ -13,6 +13,7 @@ LABEL "maintainer"="Justin Yoo <no-reply@aliencube.com>"
 # Install curl
 RUN apt-get update && apt-get install -y \
     sudo \
+    libicu63 \
     curl \
  && rm -rf /var/lib/apt/lists/*
 
