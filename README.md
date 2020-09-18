@@ -16,7 +16,7 @@ This is a GitHub Actions that runs the [bicep CLI](https://github.com/Azure/bice
 steps:
 # Runs the bicep CLI action - individual files
 - name: Run Bicep build
-  uses: aliencube/bicep-build-actions@v1
+  uses: aliencube/bicep-build-actions@v0.1
   with:
     files: sample1.bicep sample2.bicep biceps/sample3.bicep biceps/sample4.bicep
 
@@ -35,7 +35,7 @@ steps:
 steps:
 # Runs the bicep CLI action - recursive + wildcard
 - name: Run Bicep build
-  uses: aliencube/bicep-build-actions@v1
+  uses: aliencube/bicep-build-actions@v0.1
   with:
     files: '**/*.bicep'
 
