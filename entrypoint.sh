@@ -1,4 +1,6 @@
-#!/bin/sh -l
+#!/bin/bash
+
+shopt -s globstar
 
 set -e
 
