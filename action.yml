@@ -1,0 +1,18 @@
+name: Bicep Build
+author: Aliencube Community
+description: Build ARM templates using the bicep CLI
+
+branding:
+  icon: copy
+  color: orange
+
+inputs:
+  files:
+    description: List of .bicep files to build, delimited by a space. eg) file1 file2 file3 ...
+    required: true
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.files }}

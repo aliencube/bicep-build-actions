@@ -1,0 +1,23 @@
+name: ARM Template Build and Test
+
+on: push
+
+jobs:
+  build_and_test:
+    name: Build and Test
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v2
+
+    - name: Run the private action
+      uses: ./
+      with:
+        files: sample1.bicep sample2.bicep
+
+    - name: Check the result
+      shell: bash
+      run: |
+        ls -al
