@@ -20,4 +20,6 @@ jobs:
     - name: Check the result
       shell: bash
       run: |
+        shopt -s globstar
         ls -altR **/sample*.*
+        ls -altR sample*.*
