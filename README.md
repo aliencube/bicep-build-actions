@@ -24,6 +24,7 @@ steps:
 - name: Check the result
   shell: bash
   run: |
+    shopt -s globstar
     ls -altR **/sample*.*
 ```
 
@@ -42,6 +43,7 @@ steps:
 - name: Check the result
   shell: bash
   run: |
+    shopt -s globstar
     ls -altR **/sample*.*
 ```
 
