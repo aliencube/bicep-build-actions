@@ -11,8 +11,9 @@ LABEL "homepage"="http://github.com/aliencube"
 LABEL "maintainer"="Justin Yoo <no-reply@aliencube.com>"
 
 # Install curl
-RUN apt-get update \
- && apt-get install -y curl \
+RUN apt-get update && apt-get install -y \
+    sudo \
+    curl \
  && rm -rf /var/lib/apt/lists/*
 
 # Fetch the latest Bicep CLI binary
