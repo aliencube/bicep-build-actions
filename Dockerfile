@@ -1,4 +1,5 @@
-FROM ubuntu:18.04
+# Based on the .NET Core self-contained runtime image to run bicep CLI
+FROM mcr.microsoft.com/dotnet/core/runtime-deps:3.1-bionic
 WORKDIR /bicep
 
 LABEL "com.github.actions.name"="Bicep Build"
@@ -13,7 +14,6 @@ LABEL "maintainer"="Justin Yoo <no-reply@aliencube.com>"
 # Install curl
 RUN apt-get update && apt-get install -y \
     sudo \
-    libicu63 \
     curl \
  && rm -rf /var/lib/apt/lists/*
 
@@ -29,9 +29,6 @@ RUN sudo mv ./bicep /usr/local/bin/bicep
 # Verify you can now access the 'bicep' command
 RUN bicep --help
 # Done!
-
-# COPY sample1.bicep /sample1.bicep
-# COPY sample2.bicep /sample2.bicep
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
