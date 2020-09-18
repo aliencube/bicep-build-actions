@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+shopt -s globstar
+
 set -e
 
 if [ "$#" -lt 1 ]
