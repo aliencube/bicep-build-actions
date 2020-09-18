@@ -22,4 +22,3 @@ jobs:
       run: |
         shopt -s globstar
         ls -altR **/sample*.*
-        ls -altR sample*.*
