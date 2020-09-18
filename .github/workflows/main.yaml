@@ -15,9 +15,9 @@ jobs:
     - name: Run the private action
       uses: ./
       with:
-        files: sample1.bicep sample2.bicep
+        files: '**/*.bicep'
 
     - name: Check the result
       shell: bash
       run: |
-        ls -al
+        ls -altR **/sample*.*
