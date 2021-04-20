@@ -1,5 +1,5 @@
 # Based on the .NET Core self-contained runtime image to run bicep CLI
-FROM mcr.microsoft.com/dotnet/core/runtime-deps:3.1-bionic
+FROM mcr.microsoft.com/powershell:lts-ubuntu-18.04
 WORKDIR /bicep
 
 LABEL "com.github.actions.name"="Bicep Build"
@@ -30,7 +30,7 @@ RUN sudo mv ./bicep /usr/local/bin/bicep
 RUN bicep --help
 # Done!
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+ADD entrypoint.ps1 /entrypoint.ps1
+RUN chmod +x /entrypoint.ps1
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["pwsh", "-File", "/entrypoint.ps1"]
