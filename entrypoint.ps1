@@ -32,23 +32,17 @@ if ($Version -eq "latest") {
 
 $uri = "https://github.com/Azure/bicep/releases/download/$($release.tag_name)/bicep-linux-x64"
 
-# Install curl
-RUN apt-get update && apt-get install -y \
-    sudo \
-    curl \
- && rm -rf /var/lib/apt/lists/*
-
 # Fetch the given version of Bicep CLI binary
-RUN curl -Lo bicep $uri
+curl -Lo bicep $uri
 
 # Mark it as executable
-RUN chmod +x ./bicep
+chmod +x ./bicep
 
 # Add bicep to your PATH (requires admin)
-RUN sudo mv ./bicep /usr/local/bin/bicep
+sudo mv ./bicep /usr/local/bin/bicep
 
 # Verify you can now access the 'bicep' command
-RUN bicep --help
+bicep --help
 # Done!
 
 # Build bicep files individually
