@@ -11,24 +11,25 @@ LABEL "repository"="http://github.com/aliencube/bicep-build-actions"
 LABEL "homepage"="http://github.com/aliencube"
 LABEL "maintainer"="Justin Yoo <no-reply@aliencube.com>"
 
-# Install curl
-RUN apt-get update && apt-get install -y \
-    sudo \
-    curl \
- && rm -rf /var/lib/apt/lists/*
+# # Install curl
+# RUN apt-get update && apt-get install -y \
+#     sudo \
+#     curl \
+#  && rm -rf /var/lib/apt/lists/*
 
-# Fetch the latest Bicep CLI binary
-RUN curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
+# # Fetch the latest Bicep CLI binary
+# RUN curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
+# https://github.com/Azure/bicep/releases/download/v0.3.255/bicep-linux-x64
 
-# Mark it as executable
-RUN chmod +x ./bicep
+# # Mark it as executable
+# RUN chmod +x ./bicep
 
-# Add bicep to your PATH (requires admin)
-RUN sudo mv ./bicep /usr/local/bin/bicep
+# # Add bicep to your PATH (requires admin)
+# RUN sudo mv ./bicep /usr/local/bin/bicep
 
-# Verify you can now access the 'bicep' command
-RUN bicep --help
-# Done!
+# # Verify you can now access the 'bicep' command
+# RUN bicep --help
+# # Done!
 
 ADD entrypoint.ps1 /entrypoint.ps1
 RUN chmod +x /entrypoint.ps1
