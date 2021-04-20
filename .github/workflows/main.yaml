@@ -12,12 +12,23 @@ jobs:
     - name: Checkout the repo
       uses: actions/checkout@v2
 
-    - name: Run the private action
+    # - name: Run the private action 1
+    #   uses: ./
+    #   with:
+    #     files: '**/*.bicep'
+
+    # - name: Check the result 1
+    #   shell: bash
+    #   run: |
+    #     shopt -s globstar
+    #     ls -altR **/sample*.*
+
+    - name: Run the private action 2
       uses: ./
       with:
-        files: '**/*.bicep'
+        files: sample1.bicep sample2.bicep biceps/sample3.bicep biceps/sample4.bicep
 
-    - name: Check the result
+    - name: Check the result 2
       shell: bash
       run: |
         shopt -s globstar
