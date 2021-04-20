@@ -5,7 +5,8 @@ This is a GitHub Actions that runs the [bicep CLI](https://github.com/Azure/bice
 
 ## Inputs ##
 
-* `files` (**Required**): one or more `.bicep` files to build, delimited by a space. It allows wildcards for recursive build.
+* `files` (**Required**): one or more `.bicep` files to build, delimited by a space. eg. file1 file2 file3 ... It allows wildcards for recursive build.
+* `version`: Version of the bicep CLI. It can be the exact version (eg. `v0.3.255`), wildcard (eg. `v0.3.x`) or `latest`. If omitted, `latest` is set as default.
 
 
 ## Example Usage ##
@@ -16,7 +17,7 @@ This is a GitHub Actions that runs the [bicep CLI](https://github.com/Azure/bice
 steps:
 # Runs the bicep CLI action - individual files
 - name: Run Bicep build
-  uses: aliencube/bicep-build-actions@v0.1
+  uses: aliencube/bicep-build-actions@v0.3
   with:
     files: sample1.bicep sample2.bicep biceps/sample3.bicep biceps/sample4.bicep
 
@@ -35,7 +36,7 @@ steps:
 steps:
 # Runs the bicep CLI action - recursive + wildcard
 - name: Run Bicep build
-  uses: aliencube/bicep-build-actions@v0.1
+  uses: aliencube/bicep-build-actions@v0.3
   with:
     files: '**/*.bicep'
 
