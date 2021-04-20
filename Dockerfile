@@ -7,7 +7,7 @@ LABEL "com.github.actions.description"="Build ARM templates using the bicep CLI"
 LABEL "com.github.actions.icon"="copy"
 LABEL "com.github.actions.color"="orange"
 
-LABEL "repository"="http://github.com/aliencube/bicep-actions"
+LABEL "repository"="http://github.com/aliencube/bicep-build-actions"
 LABEL "homepage"="http://github.com/aliencube"
 LABEL "maintainer"="Justin Yoo <no-reply@aliencube.com>"
 
