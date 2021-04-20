@@ -1,7 +1,7 @@
 Param(
     [string]
     [Parameter(Mandatory=$true)]
-    $Files
+    $Files,
 
     [string]
     [Parameter(Mandatory=$false)]
