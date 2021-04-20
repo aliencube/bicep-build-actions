@@ -13,6 +13,7 @@ inputs:
   version:
     description: Version of the bicep CLI. It can be the exact version (eg. `v0.3.255`), wildcard (eg. `v0.3.x`) or `latest`. If omitted, `latest` is set as default.
     required: false
+    default: 'latest'
 
 runs:
   using: docker

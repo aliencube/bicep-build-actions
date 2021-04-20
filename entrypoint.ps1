@@ -24,7 +24,7 @@ $uri = "https://api.github.com/repos/Azure/bicep/releases"
 $headers = @{ Accept = "application/vnd.github.v3+json" }
 
 $releases = Invoke-RestMethod -Method GET -Uri $uri -Headers $headers
-if ($Version -eq "latest") {
+if (($Version -eq "latest") -or ($Version -eq "")) {
     $release = ($releases | Select-Object -Property tag_name | Sort-Object -Descending)[0]
 } else {
     $release = ($releases | Where-Object { $_.tag_name -like $Version.Replace("x", "*") } | Select-Object -Property tag_name | Sort-Object -Descending)[0]
