@@ -8,6 +8,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        files: [ '**/*.bicep', 'sample1.bicep sample2.bicep biceps/sample3.bicep biceps/sample4.bicep' ]
+        version: [ 'latest', 'v0.3.255', 'v0.2.x' ]
+
     steps:
     - name: Checkout the repo
       uses: actions/checkout@v2
@@ -15,7 +20,8 @@ jobs:
     - name: Run the private action
       uses: ./
       with:
-        files: '**/*.bicep'
+        files: ${{ matrix.files }}
+        version: ${{ matrix.version }}
 
     - name: Check the result
       shell: bash
