@@ -14,6 +14,10 @@ inputs:
     description: Version of the bicep CLI. It can be the exact version (eg. `v0.3.255`), wildcard (eg. `v0.3.x`) or `latest`. If omitted, `latest` is set as default.
     required: false
     default: 'latest'
+  exitOnFailure:
+    description: Exits with bicep CLI exit code if the build fails on a file. If omitted, `false` is set as default.
+    required: false
+    default: $false
 
 runs:
   using: docker
@@ -23,3 +27,5 @@ runs:
   - ${{ inputs.files }}
   - -Version
   - ${{ inputs.version }}
+  - -ExitOnFailure
+  - ${{ inputs.exitOnFailure }}

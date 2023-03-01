@@ -5,7 +5,11 @@ Param(
 
     [string]
     [Parameter(Mandatory=$false)]
-    $Version = "latest"
+    $Version = "latest",
+
+    [boolean]
+    [Parameter(Mandatory=$false)]
+    $ExitOnFailure
 )
 
 if ($Files -eq $null) {
@@ -48,6 +52,10 @@ bicep --help
 # Build bicep files individually
 $items | ForEach-Object {
     bicep build $_.FullName
-
-    Write-Host "$($_.FullName) -> $($_.FullName.Replace(".bicep", ".json"))"
+    if($ExitOnFailure -and ($LASTEXITCODE -ne 0)) {
+        Write-Host "Bicep build failed for $($_.FullName)" -ForegroundColor Red -BackgroundColor Yellow
+        exit $LASTEXITCODE
+    } else {
+        Write-Host "$($_.FullName) -> $($_.FullName.Replace(".bicep", ".json"))"
+    }
 }

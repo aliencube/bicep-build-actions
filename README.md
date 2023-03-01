@@ -7,6 +7,7 @@ This is a GitHub Actions that runs the [bicep CLI](https://github.com/Azure/bice
 
 * `files` (**Required**): one or more `.bicep` files to build, delimited by a space. eg. file1 file2 file3 ... It allows wildcards for recursive build.
 * `version`: Version of the bicep CLI. It can be the exact version (eg. `v0.3.255`), wildcard (eg. `v0.3.x`) or `latest`. If omitted, `latest` is set as default.
+* `exitOnFailure`: Exits with bicep CLI exit code if the build fails on a file. If omitted, `false` is set as default.
 
 
 ## Example Usage ##
